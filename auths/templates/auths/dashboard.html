@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+<title>{% block title %} My Dasboard {% endblock %}</title>
+
+
+{% block content %}
+
+
+<h5> Welcome, {{user}}! 👋 </h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-employee' %}">
+
+        Create a new employee &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr> 
+
+    <table class="table table-hover table-bordered">
+
+        <thead class="table-light">
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Full name </th>
+                <th scope="col"> Email </th>
+                <th scope="col"> Phone </th>
+                <th scope="col"> Address </th>
+                <th scope="col"> City </th>
+                <th scope="col"> Province </th>
+                <th scope="col"> Country </th>
+                <th scope="col"> Created By </th>
+                <th scope="col"> Date joined </th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for employee in employees %}
+
+            <tr>
+
+                <td> {{employee.id}} </td>
+
+                <td> {{employee.first_name}}  {{employee.last_name}} </td>
+
+                <td> {{employee.email}} </td>
+
+                <td> {{employee.phone}} </td>
+                <td> {{employee.address}} </td>
+                <td> {{employee.city}} </td>
+                <td> {{employee.province}} </td>
+                <td> {{employee.country}} </td>
+                <td> {{employee.created_by}} </td>
+                <td> {{employee.date_joined}} </td>
+
+                <td> <a class="btn btn-success btn-sm" href="{% url 'employee-info' employee.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+
+            </tr>
+
+        {% endfor %}
+
+
+        </tbody>
+
+
+    </table>
+
+
+    {{ redirect_to_login_immediately }}
+
+
+{% endblock %}

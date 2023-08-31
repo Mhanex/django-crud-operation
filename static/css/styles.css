@@ -1,0 +1,25 @@
+
+h5, h3 {
+    color: #002b49;
+    text-transform: capitalize;
+    /* color: #3db5e6 */
+}
+
+.nav-item .nav-link {
+    color: #ffff;
+    text-transform: capitalize;
+}
+
+.nav-item .nav-link:hover {
+    color: #3db5e6;
+    
+}
+
+
+.form-layout {
+    border-radius:  15px;
+    width:  500px;
+    background-color: #ebecf0
+    
+
+}

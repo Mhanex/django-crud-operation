@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<title> {% block title %} Create New Account {% endblock %}</title>
+
+{% block content %}
+
+    <div class="container shadow-md p-5 form-layout">
+        <h3>Join Now</h3>
+        <h5>Become a member to start managing data</h5>
+        <p>required field is marked *</p>
+
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            {{regForm.username | as_crispy_field}}
+            <br>
+            {{regForm.password1 | as_crispy_field}}
+            <br>
+            {{regForm.password2 | as_crispy_field}}
+            <br>
+
+            <button type="submit" class="btn btn-primary w-100 btn-block p-2">Create Account</button>
+
+        </form>
+        <br>
+        <div class="text-center">
+            <p>Already a member?</p> 
+            <a style="text-decoration: none;" href="{% url 'signin' %}">Signin</a>
+        </div>
+
+
+    </div><br>
+
+
+{% endblock %}
+
+
